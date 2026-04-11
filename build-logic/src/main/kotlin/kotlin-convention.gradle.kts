@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.gradle.api.JavaVersion
 
 plugins {
     java
@@ -10,8 +12,10 @@ plugins {
 }
 
 java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(26))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 
@@ -30,6 +34,7 @@ tasks {
     }
     withType<KotlinCompile>().configureEach {
         compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_25)
             freeCompilerArgs.add("-Xcontext-parameters")
             freeCompilerArgs.add("-Xcontext-sensitive-resolution")
             freeCompilerArgs.add("-Xnested-type-aliases")
