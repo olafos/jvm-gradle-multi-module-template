@@ -3,7 +3,7 @@
 assertk = "0.28.1"
 integration-test = "2.2.5"
 junit = "6.0.3"
-kotlin = "2.3.10"
+kotlin = "2.3.20"
 kotlin-coroutines = "1.10.1"
 kotlin-logging = "8.0.01"
 ktlint = "14.2.0"
