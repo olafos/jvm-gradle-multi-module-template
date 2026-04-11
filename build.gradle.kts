@@ -2,5 +2,5 @@ plugins {
     id("kotlin-convention")
 }
 
-group = "pl.codeplay.jvm"
+group = "pl.codeplay"
 version = "1.0-SNAPSHOT"
