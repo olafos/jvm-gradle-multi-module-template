@@ -1,32 +1,47 @@
+@file:Suppress("UnstableApiUsage")
+
+import org.gradle.api.publish.maven.MavenPublication
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("kotlin-convention")
     `maven-publish`
-    signing
+}
+
+tasks {
+    withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            apiVersion = KotlinVersion.KOTLIN_1_9
+            languageVersion = KotlinVersion.KOTLIN_1_9
+        }
+    }
 }
 
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            from(components["java"])
-            pom {
-                name.set("JVM Gradle Multi-Module Template Library")
-                description.set("A sample library from the JVM Gradle multi-module template")
-                url.set("https://github.com/olafos/jvm-gradle-multi-module-template")
-                licenses {
-                    license {
-                        name.set("MIT License")
-                        url.set("https://opensource.org/licenses/MIT")
+            configureEach {
+                from(components["java"])
+                pom {
+                    groupId = project.group.toString()
+                    artifactId = project.name
+                    version = project.version.toString()
+                    name = project.name
+                    description = project.description
+                    url = "https://github.com/olafos/jvm-gradle-multi-module-template"
+                    licenses {
+                        license {
+                            name = "MIT License"
+                            url = "https://opensource.org/licenses/MIT"
+                        }
                     }
-                }
-                developers {
-                    developer {
-                        id.set("olafos")
+                    developers {
+                        developer {
+                            id = "olafos"
+                        }
                     }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/olafos/jvm-gradle-multi-module-template.git")
-                    developerConnection.set("scm:git:ssh://github.com/olafos/jvm-gradle-multi-module-template.git")
-                    url.set("https://github.com/olafos/jvm-gradle-multi-module-template")
                 }
             }
         }
@@ -41,8 +56,4 @@ publishing {
             }
         }
     }
-}
-
-signing {
-    sign(publishing.publications["maven"])
 }
