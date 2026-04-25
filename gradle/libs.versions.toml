@@ -9,7 +9,7 @@ kotlin-logging = "8.0.01"
 ktlint = "14.2.0"
 ktlint-ruleset = "1.8.0"
 mockk = "1.14.9"
-spring-boot = "4.0.5"
+spring-boot = "4.0.6"
 test-logger = "4.0.0"
 versions = "0.53.0"
 
