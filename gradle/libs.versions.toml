@@ -11,7 +11,7 @@ ktlint-ruleset = "1.8.0"
 mockk = "1.14.9"
 spring-boot = "4.0.5"
 test-logger = "4.0.0"
-versions = "0.53.0"
+versions = "0.54.0"
 
 [libraries]
 assertk = { module = "com.willowtreeapps.assertk:assertk-jvm", version.ref = "assertk" }
