@@ -1,7 +1,7 @@
 [versions]
 
 assertk = "0.28.1"
-integration-test = "2.2.5"
+integration-test = "2.2.6"
 junit = "6.0.3"
 kotlin = "2.4.20"
 kotlin-coroutines = "1.11.0"
